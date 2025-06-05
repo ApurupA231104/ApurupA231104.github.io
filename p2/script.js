@@ -4,7 +4,7 @@ const showLogin = () => {
     <h1>Login Form</h1>
     <p><input type="text" id="txtEmail"></p>
     <p><input type="password" id="txtPass"></p>
-    <p><button>Log In</button></p>
+    <p><button onclick="showHome()">Log In</button></p>
     <p><button onclick='showRegister()'>Create Account</button></p>
     </div>
     `
@@ -19,6 +19,15 @@ const showRegister = () => {
     <p><input type="text" id="txtEmail"></p>
     <p><input type="password" id="txtPass"></p>
     <button>Register</button>
+    <button onclick= 'showLogin()'>Already have an account</button>
     `
     root.innerHTML = str
+}
+
+const showHome = () => {
+      let str = `
+      <div class = 'App-Container'
+      <h1> Welcome! <h1/>
+      `
+      root.innerHTML = str
 }
