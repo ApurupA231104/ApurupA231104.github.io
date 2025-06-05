@@ -27,6 +27,12 @@
             //alert(a * b);
             mulResult.innerHTML = e * f;
         }
+        function calcdiv() {
+            let g = Number(num7.value);
+            let h = Number(num8.value);
+            //alert(a / b);
+            divResult.innerHTML = g / h;
+        }
     </script>
 </head>
 <body>
@@ -47,6 +53,11 @@
     <input type="text" id="num6">
     <button onclick= "calcmul()" style="background-color: yellowgreen;">Multiply</button>
     <div id="mulResult"></div>
+    <hr/>
+    <input type="text" id="num7">
+    <input type="text" id="num8">
+    <button onclick= "calcdiv()" style="background-color: yellow;">Divide</button>
+    <div id="divResult"></div>
     <hr/>
 </body>
 </html>

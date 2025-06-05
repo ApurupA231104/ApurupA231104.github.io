@@ -1,46 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <h1> Assignment 4</h1>
-    <script>
-        function greet(){
-            alert(txtname.value);
-        }
-        function calcadd() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            addResult.innerHTML = a + b;
-        }
-        function calcsub() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            subResult.innerHTML = a - b;
-        }
-        function calcmul() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            mulResult.innerHTML = a * b;
-        }
-    </script>
+  <title>Function-Based Calculator</title>
+  <script>
+    function add() {
+      let sum = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        sum += Number(arguments[i]);
+      }
+      return sum;
+    }
+
+    function sub(a, b) {
+      return a - b;
+    }
+
+    function mul(a, b) {
+      return a * b;
+    }
+
+    function div(a, b) {
+      return b !== 0 ? a / b : "Cannot divide by 0";
+    }
+
+    function calculate() {
+      const a = document.getElementById("num1").value;
+      const b = document.getElementById("num2").value;
+
+      const x = Number(a);
+      const y = Number(b);
+
+      document.getElementById("result").innerHTML =
+        "Add: " + add(x, y) + "<br>" +
+        "Sub: " + sub(x, y) + "<br>" +
+        "Mul: " + mul(x, y) + "<br>" +
+        "Div: " + div(x, y);
+    }
+  </script>
 </head>
 <body>
-    <input type="text"  id="txtname">
-    <button onclick="greet()" style="background-color: crimson;">Click </button>
-    <hr/>
-    <input type="text" id="txtnum1">
-    <input type="text" id="txtnum2">
-    <button onclick= "calcadd()" style="background-color: chocolate;">Add</button>
-    <button onclick= "calcsub()" style="background-color: chocolate;">Subtract</button>
-    <button onclick= "calcmul()" style="background-color: chocolate;">Multiply</button>
-    <hr/>
-    <div id="addResult"></div>
-    <div id="subResult"></div>
-    <div id="mulResult"></div>
+  <input type="text" id="num1">
+  <input type="text" id="num2">
+  <button onclick="calculate()" style="background-color: red;">Calculate</button>
+  <div id="result"></div>
 </body>
 </html>
