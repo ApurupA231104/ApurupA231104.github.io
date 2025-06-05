@@ -8,10 +8,10 @@
   <script>
     function showDetails() {
       const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
+      const email = document.getElementById("email").value; // capture the value
       const password = document.getElementById("password").value;
 
-      document.getElementById("Details").innerHTML =
+      document.getElementById("Details").innerHTML = // display the value (but it is not stored in particular memeory)
         "Name: " + name + "<br>" +
         "Email: " + email + "<br>" +
         "Password: " + password;
@@ -23,8 +23,7 @@
   <input type="text" id="email" placeholder="Enter your email"><br><br>
   <input type="text" id="password" placeholder="Enter your password"><br><br>
   <button onclick="showDetails()" style="background-color: blue; color: white;">Submit</button>
-
-  <hr>
+  <hr/>
   <div id="Details"></div>
 </body>
 </html>
