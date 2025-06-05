@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1> Assignment 3</h1>
+    <h1> Assignment 4</h1>
     <script>
         function greet(){
             alert(txtname.value);
@@ -16,16 +16,16 @@
             addResult.innerHTML = a + b;
         }
         function calcsub() {
-            let c = Number(num3.value);
-            let d = Number(num4.value);
-            //alert(a - b);
-            subResult.innerHTML = c - d;
+            let a = Number(txtnum1.value);
+            let b = Number(txtnum2.value);
+            //alert(a + b);
+            subResult.innerHTML = a - b;
         }
         function calcmul() {
-            let e = Number(num5.value);
-            let f = Number(num6.value);
-            //alert(a * b);
-            mulResult.innerHTML = e * f;
+            let a = Number(txtnum1.value);
+            let b = Number(txtnum2.value);
+            //alert(a + b);
+            mulResult.innerHTML = a * b;
         }
     </script>
 </head>
@@ -36,17 +36,11 @@
     <input type="text" id="txtnum1">
     <input type="text" id="txtnum2">
     <button onclick= "calcadd()" style="background-color: chocolate;">Add</button>
+    <button onclick= "calcsub()" style="background-color: chocolate;">Subtract</button>
+    <button onclick= "calcmul()" style="background-color: chocolate;">Multiply</button>
+    <hr/>
     <div id="addResult"></div>
-    <hr/>
-    <input type="text" id="num3">
-    <input type="text" id="num4">
-    <button onclick= "calcsub()" style="background-color: orangered;">Subtract</button>
     <div id="subResult"></div>
-    <hr/>
-    <input type="text" id="num5">
-    <input type="text" id="num6">
-    <button onclick= "calcmul()" style="background-color: yellowgreen;">Multiply</button>
     <div id="mulResult"></div>
-    <hr/>
 </body>
 </html>
