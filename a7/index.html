@@ -20,10 +20,11 @@
         document.getElementById("fruitList").innerHTML = listHTML;
       }
       function add() {
-        const input = document.getElementById("txt1").value;
-        fruits.push(input);
-        dispFruits()
-      }
+         const input = document.getElementById("txt1").value;
+         fruits.push(input);
+         document.getElementById("txt1").value = ""; // clear the input field
+         dispFruits();
+          }
     </script>
   </head>
   <body>
