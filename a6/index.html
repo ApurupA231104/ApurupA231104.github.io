@@ -12,9 +12,7 @@
     <button onclick="addFruit()">Add</button>
   </div>
 
-  <ul id="fruitList">
-    <!-- Fruits will appear here -->
-  </ul>
+  <ul id="fruitList"> </ul>
 
   <script>
     const fruits = [];
@@ -24,7 +22,7 @@
       const fruitName = inputElement.value;
 
       fruits.push(fruitName);
-      
+
       const fruitList = document.getElementById("fruitList");
       fruitList.innerHTML += `<li>${fruitName}</li>`;
 
