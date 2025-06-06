@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fruit List App</title>
+</head>
+<body>
+  <h1>Fruit List</h1>
+
+  <div class="input-section">
+    <input type="text" id="fruitInput" placeholder="Enter a fruit name">
+    <button onclick="addFruit()">Add</button>
+  </div>
+
+  <ul id="fruitList">
+    <!-- Fruits will be added here -->
+  </ul>
+
+  <script>
+    const fruits = [];
+
+    function addFruit() {
+      const inputElement = document.getElementById("fruitInput");
+      const fruitName = inputElement.value;
+
+      fruits.push(fruitName);
+
+      const li = document.createElement("li");
+      li.textContent = fruitName;
+      document.getElementById("fruitList").appendChild(li);
+
+      inputElement.value = "";
+    }
+  </script>
+
+</body>
+</html>
