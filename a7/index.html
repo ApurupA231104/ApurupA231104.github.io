@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit List</title>
+    <script>
+      let fruits = [];
+      function del(value) {
+        fruits = fruits.filter((e) => e != value);
+        dispFruits()
+      }
+      function dispFruits() {
+        let listHTML = fruits
+          .map(
+            (fruit) =>
+              `<li>${fruit}<button onclick=del('${fruit}')>Delete</button></li>`
+          )
+          .join("");
+        document.getElementById("fruitList").innerHTML = listHTML;
+      }
+      function add() {
+        const input = document.getElementById("txt1").value;
+        fruits.push(input);
+        dispFruits()
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Fruit List</h1>
+      <input type="text" id="txt1" />
+      <button onclick="add()">Add</button>
+      <ul id="fruitList"></ul>
+    </div>
+  </body>
+</html>
