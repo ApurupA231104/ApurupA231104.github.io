@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Search by Email</title>
+</head>
+<body>
+  <input type="text" id="Email" placeholder="Enter email to search" />
+  <button onclick="searchByEmail()">Search</button>
+
+  <div id="Result"></div>
+
+  <script>
+    const url = "https://jsonplaceholder.typicode.com/users";
+    let usersData = [];
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((users) => {
+        usersData = users;
+      });
+
+    function searchByEmail() {
+      const email = document.getElementById("Email").value.trim();
+      const resultDiv = document.getElementById("Result");
+
+      if (!email) {
+        resultDiv.innerHTML = "<div>Please enter an email address.</div>";
+        return;
+      }
+
+      const user = usersData.find((u) => u.email === email);
+
+      if (user) {
+        resultDiv.innerHTML = `<div>${user.name}</div>`;
+      } else {
+        resultDiv.innerHTML = "<div>No user found with that email.</div>";
+      }
+    }
+  </script>
+</body>
+</html>
