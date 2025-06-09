@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Posts by Email</title>
+</head>
+<body>
+  <input type="text" id="Email" placeholder="Enter email to search" />
+  <button onclick="searchByEmail()">Search</button>
+
+  <div id="Result"></div>
+
+  <script>
+    const usersUrl = "https://jsonplaceholder.typicode.com/users";
+    const postsUrl = "https://jsonplaceholder.typicode.com/posts";
+    let usersData = [];
+
+    fetch(usersUrl)
+      .then((res) => res.json())
+      .then((users) => {
+        usersData = users;
+      });
+
+    function searchByEmail() {
+      const email = document.getElementById("Email").value.trim();
+      const resultDiv = document.getElementById("Result");
+
+      resultDiv.innerHTML = "";
+
+      if (!email) {
+        resultDiv.innerHTML = "<div>Please enter an email address.</div>";
+        return;
+      }
+
+      const user = usersData.find((u) => u.email.toLowerCase() === email.toLowerCase());
+
+      if (!user) {
+        resultDiv.innerHTML = "<div>No user found with that email.</div>";
+        return;
+      }
+      fetch(postsUrl)
+        .then((res) => res.json())
+        .then((posts) => {
+          const userPosts = posts.filter(post => post.userId === user.id);
+
+          if (userPosts.length === 0) {
+            resultDiv.innerHTML = `<div>No posts found for ${user.name}.</div>`;
+            return;
+          }
+
+          // Step 3: Display posts
+          let html = `<h3>Posts by ${user.name} (${user.email}):</h3>`;
+          userPosts.forEach(post => {
+            html += `<div style="margin-bottom: 10px;">
+                        <strong>${post.title}</strong>
+                        <p>${post.body}</p>
+                     </div>`;
+          });
+
+          resultDiv.innerHTML = html;
+        })
+        .catch(() => {
+          resultDiv.innerHTML = "<div>Error fetching posts.</div>";
+        });
+    }
+  </script>
+</body>
+</html>
